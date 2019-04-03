@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import 'reset.css'
+import 'reset-css'
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`

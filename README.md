@@ -1,4 +1,4 @@
-# Today I
+# Today I [verb]
 
 - learned
 - built

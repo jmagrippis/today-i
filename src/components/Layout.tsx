@@ -1,7 +1,14 @@
 import React, { ReactNode } from 'react'
 import 'reset-css'
+import styled from 'styled-components'
 
 import { Header } from './Header'
+
+const Container = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 1.5em 0;
+`
 
 type Props = {
   siteTitle: string
@@ -9,24 +16,12 @@ type Props = {
   children: ReactNode
 }
 
-const Layout = ({ siteTitle, postTitle, children }: Props) => {
-  return (
-    <div
-      style={{
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        maxWidth: '24em',
-        padding: '1.5em 0.75em',
-      }}
-    >
-      <Header siteTitle={siteTitle} postTitle={postTitle} />
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with{' '}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
-    </div>
-  )
-}
+const Layout = ({ siteTitle, postTitle, children }: Props) => (
+  <Container>
+    <Header siteTitle={siteTitle} postTitle={postTitle} />
+    <main>{children}</main>
+    <footer>© {new Date().getFullYear()}, Built with 💜 in London</footer>
+  </Container>
+)
 
 export default Layout

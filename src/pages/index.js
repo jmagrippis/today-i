@@ -1,50 +1,27 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Bio from '../components/bio'
 import Layout from '../components/Layout'
+import { PostTeaser } from '../components/PostTeaser'
 import SEO from '../components/seo'
 
-class BlogIndex extends React.Component {
-  render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
+export const BlogIndex = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata.title
+  const posts = data.allMarkdownRemark.edges
 
-    return (
-      <Layout location={this.props.location} siteTitle={siteTitle}>
-        <SEO
-          title="All posts"
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
-        />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: '0.25em',
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>
-                {node.frontmatter.date} - {node.fields.readingTime.text}
-              </small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </div>
-          )
-        })}
-      </Layout>
-    )
-  }
+  return (
+    <Layout location={location} siteTitle={siteTitle}>
+      <SEO
+        title="All posts"
+        keywords={['blog', 'gatsby', 'javascript', 'react']}
+      />
+      <Bio />
+      {posts.map(({ node }) => (
+        <PostTeaser key={node.fields.slug} {...node} />
+      ))}
+    </Layout>
+  )
 }
 
 export default BlogIndex
@@ -70,6 +47,13 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 640, maxHeight: 320) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

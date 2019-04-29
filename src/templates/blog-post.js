@@ -1,71 +1,65 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import Image from 'gatsby-image'
+import styled from 'styled-components'
 
 import Bio from '../components/bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
+const OtherPosts = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`
 
-    return (
-      <Layout
-        location={this.props.location}
-        siteTitle={siteTitle}
-        postTitle={post.frontmatter.title}
-      >
-        <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
-        />
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            display: 'block',
-            marginBottom: '1em',
-            marginTop: '-1em',
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: '1em',
-          }}
-        />
-        <Bio />
+export const BlogPostTemplate = ({ data, pageContext, location }) => {
+  const post = data.markdownRemark
+  const siteTitle = data.site.siteMetadata.title
+  const { previous, next } = pageContext
 
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </Layout>
-    )
-  }
+  return (
+    <Layout
+      location={location}
+      siteTitle={siteTitle}
+      postTitle={post.frontmatter.title}
+    >
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.description || post.excerpt}
+      />
+      <Image
+        fluid={post.frontmatter.cover.childImageSharp.fluid}
+        alt={post.frontmatter.title}
+      />
+      <h1>{post.frontmatter.title}</h1>
+      <p>{post.frontmatter.date}</p>
+      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <hr
+        style={{
+          marginBottom: '1em',
+        }}
+      />
+      <Bio />
+
+      <OtherPosts>
+        <li>
+          {previous && (
+            <Link to={previous.fields.slug} rel="prev">
+              ← {previous.frontmatter.title}
+            </Link>
+          )}
+        </li>
+        <li>
+          {next && (
+            <Link to={next.fields.slug} rel="next">
+              {next.frontmatter.title} →
+            </Link>
+          )}
+        </li>
+      </OtherPosts>
+    </Layout>
+  )
 }
 
 export default BlogPostTemplate
@@ -86,6 +80,13 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        cover {
+          childImageSharp {
+            fluid(maxWidth: 960) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

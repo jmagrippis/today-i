@@ -9,45 +9,44 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
-function Bio() {
-  return (
-    <StaticQuery
-      query={bioQuery}
-      render={data => {
-        const { author, social } = data.site.siteMetadata
-        return (
-          <div
+const Bio = () => (
+  <StaticQuery
+    query={bioQuery}
+    render={data => {
+      const { author, social } = data.site.siteMetadata
+      return (
+        <div
+          style={{
+            display: 'flex',
+            marginBottom: '2.5em',
+          }}
+        >
+          <Image
+            fixed={data.avatar.childImageSharp.fixed}
+            alt={author}
             style={{
-              display: 'flex',
-              marginBottom: '2.5em',
+              marginRight: '0.5em',
+              marginBottom: 0,
+              minWidth: 50,
+              borderRadius: '100%',
             }}
-          >
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
-              style={{
-                marginRight: '0.5em',
-                marginBottom: 0,
-                minWidth: 50,
-                borderRadius: '100%',
-              }}
-              imgStyle={{
-                borderRadius: '50%',
-              }}
-            />
-            <p>
-              Written by <strong>{author}</strong> who lives and works in San
-              Francisco building useful things.
-              <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
-              </a>
-            </p>
-          </div>
-        )
-      }}
-    />
-  )
-}
+            imgStyle={{
+              borderRadius: '50%',
+            }}
+          />
+          <p>
+            The adventures of interpid developer <strong>{author}</strong>, who
+            travels the world and does stuff!
+            <a href={`https://www.instagram.com/${social.instagram}`}>
+              Follow on Instagram
+            </a>
+            !
+          </p>
+        </div>
+      )
+    }}
+  />
+)
 
 const bioQuery = graphql`
   query BioQuery {
@@ -62,7 +61,7 @@ const bioQuery = graphql`
       siteMetadata {
         author
         social {
-          twitter
+          instagram
         }
       }
     }

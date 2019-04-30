@@ -1,0 +1,16 @@
+html,
+body {
+  font-family: 'Gentium Basic', serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Eczar', serif;
+}
+
+strong {
+  font-weight: 700;
+}

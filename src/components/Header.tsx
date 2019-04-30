@@ -8,10 +8,12 @@ const Container = styled.header`
 
 const H1 = styled.h1`
   font-size: 1.5em;
+  margin-bottom: 0.5em;
 `
 
 const H3 = styled.h3`
   font-size: 1.25em;
+  margin-bottom: 0.5em;
 `
 
 type Props = {
@@ -20,17 +22,11 @@ type Props = {
 }
 
 export const Header = ({ siteTitle, postTitle }: Props) => {
-  const Headline = postTitle ? H1 : H3
+  const Headline = postTitle ? H3 : H1
 
   return (
     <Container>
-      <Headline
-        style={{
-          fontSize: '1.5em',
-          marginBottom: '1.5em',
-          marginTop: 0,
-        }}
-      >
+      <Headline>
         <Link
           style={{
             boxShadow: 'none',

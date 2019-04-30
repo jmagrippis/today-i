@@ -1,14 +1,35 @@
 import React from 'react'
 import { Link, navigate } from 'gatsby'
-import Image from 'gatsby-image'
+import Image, { FluidObject } from 'gatsby-image'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  display: css;
+  display: flex;
+  margin-bottom: 3em;
 `
 
 const ImageLink = styled(Link)`
   flex: 0 1 640px;
+  margin-right: 1em;
+`
+
+const Main = styled.div`
+  flex: 0 1 320px;
+  padding: 0 0.5em;
+`
+
+const H3 = styled.h3`
+  font-size: 1.5em;
+  margin-bottom: 0.25em;
+`
+
+const Small = styled.small`
+  display: block;
+  margin-bottom: 1.5em;
+`
+
+const Body = styled.p`
+  font-size: 1.25em;
 `
 
 type Props = {
@@ -22,7 +43,7 @@ type Props = {
     }
     cover: {
       childImageSharp: {
-        fluid: object
+        fluid: FluidObject
       }
     }
   }
@@ -39,22 +60,18 @@ export const PostTeaser = ({ fields, excerpt, frontmatter }: Props) => (
         alt={fields.slug}
       />
     </ImageLink>
-    <div>
-      <h3
-        style={{
-          marginBottom: '0.25em',
-        }}
-      >
+    <Main>
+      <H3>
         <Link to={fields.slug}>{frontmatter.title}</Link>
-      </h3>
-      <small>
+      </H3>
+      <Small>
         {frontmatter.date} - {fields.readingTime.text}
-      </small>
-      <p
+      </Small>
+      <Body
         dangerouslySetInnerHTML={{
           __html: frontmatter.description || excerpt,
         }}
       />
-    </div>
+    </Main>
   </Container>
 )

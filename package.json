@@ -29,8 +29,8 @@
     "react-helmet": "^5.2.0",
     "reset-css": "^4.0.1",
     "styled-components": "^4.2.0",
-    "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.54"
+    "typeface-eczar": "^0.0.72",
+    "typeface-gentium-basic": "^0.0.72"
   },
   "devDependencies": {
     "@types/styled-components": "^4.1.12",

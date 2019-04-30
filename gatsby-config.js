@@ -2,11 +2,12 @@ module.exports = {
   siteMetadata: {
     title: 'Today I [verb]',
     author: 'Johnny Magrippis',
-    description: 'Documenting my misadventures in tech and life in general',
+    description: 'Documenting my adventures in tech and life in general',
     siteUrl: 'https://today-i.netlify.com/',
     social: {
       twitter: 'jmagrippis',
       instagram: 'jmagrippis',
+      github: 'jmagrippis',
     },
   },
   plugins: [

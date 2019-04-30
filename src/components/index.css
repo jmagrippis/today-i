@@ -1,6 +1,10 @@
+/* palette: https://coolors.co/e4572e-29335c-f3a712-dfead3-0a0f12 */
+
 html,
 body {
   font-family: 'Gentium Basic', serif;
+  background-color: #f7f9f4;
+  color: #0a0f12;
 }
 
 h1,
@@ -13,4 +17,14 @@ h5 {
 
 strong {
   font-weight: 700;
+}
+
+a {
+  color: #e4572e;
+  text-decoration: none;
+  transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+a:hover {
+  color: #d0502a;
 }

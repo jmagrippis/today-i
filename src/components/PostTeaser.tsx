@@ -1,11 +1,15 @@
 import React from 'react'
-import { Link, navigate } from 'gatsby'
+import { Link } from 'gatsby'
 import Image, { FluidObject } from 'gatsby-image'
 import styled from 'styled-components'
+
+import { Small } from './Small'
+import { appear } from '../animations'
 
 const Container = styled.div`
   display: flex;
   margin-bottom: 3em;
+  animation: ${appear} 1s cubic-bezier(0.165, 0.84, 0.44, 1);
 `
 
 const ImageLink = styled(Link)`
@@ -18,18 +22,14 @@ const Main = styled.div`
   padding: 0 0.5em;
 `
 
-const H3 = styled.h3`
-  font-size: 1.5em;
+const H2 = styled.h2`
+  font-size: 1.75em;
   margin-bottom: 0.25em;
 `
 
-const Small = styled.small`
-  display: block;
-  margin-bottom: 1.5em;
-`
-
 const Body = styled.p`
-  font-size: 1.25em;
+  font-size: 1.5em;
+  line-height: 1.3em;
 `
 
 type Props = {
@@ -49,6 +49,9 @@ type Props = {
   }
   fields: {
     slug: string
+    readingTime: {
+      text: string
+    }
   }
 }
 
@@ -61,12 +64,10 @@ export const PostTeaser = ({ fields, excerpt, frontmatter }: Props) => (
       />
     </ImageLink>
     <Main>
-      <H3>
+      <H2>
         <Link to={fields.slug}>{frontmatter.title}</Link>
-      </H3>
-      <Small>
-        {frontmatter.date} - {fields.readingTime.text}
-      </Small>
+      </H2>
+      <Small date={frontmatter.date} readingTime={fields.readingTime.text} />
       <Body
         dangerouslySetInnerHTML={{
           __html: frontmatter.description || excerpt,

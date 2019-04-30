@@ -35,7 +35,11 @@ const Container = styled.div`
   display: flex;
   margin-bottom: 1.5em;
   align-items: center;
-  padding: 0 0.5em;
+  padding: 0.5em;
+  font-size: 1.25em;
+  background-color: #fcefd3;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
 `
 
 const StyledImageContainer = styled(Image)`
@@ -70,7 +74,7 @@ const Bio = () => (
               <a href={`https://www.instagram.com/${social.instagram}`}>
                 on Instagram
               </a>
-              , or check out my work{' '}
+              , check out my work{' '}
               <a href={`https://github.com/${social.github}`}>on Github</a>!
             </p>
           </div>

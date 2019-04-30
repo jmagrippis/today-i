@@ -6,6 +6,26 @@ import styled from 'styled-components'
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
+import { Small } from '../components/Small'
+
+const StyledImage = styled(Image)`
+  margin-bottom: 1em;
+`
+
+const H1 = styled.h1`
+  font-size: 2em;
+  margin-bottom: 0.25em;
+`
+
+const Body = styled.div`
+  font-size: 1.5em;
+  line-height: 1.3em;
+  margin-bottom: 1em;
+
+  p {
+    margin-bottom: 0.5em;
+  }
+`
 
 const OtherPosts = styled.ul`
   display: flex;
@@ -13,35 +33,28 @@ const OtherPosts = styled.ul`
   justify-content: space-between;
 `
 
-export const BlogPostTemplate = ({ data, pageContext, location }) => {
+export const BlogPost = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
 
   return (
-    <Layout
-      location={location}
-      siteTitle={siteTitle}
-      postTitle={post.frontmatter.title}
-    >
+    <Layout siteTitle={siteTitle} postTitle={post.frontmatter.title}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <Image
+      <StyledImage
         fluid={post.frontmatter.cover.childImageSharp.fluid}
         alt={post.frontmatter.title}
       />
-      <h1>{post.frontmatter.title}</h1>
-      <p>{post.frontmatter.date}</p>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <hr
-        style={{
-          marginBottom: '1em',
-        }}
+      <H1>{post.frontmatter.title}</H1>
+      <Small
+        date={post.frontmatter.date}
+        readingTime={post.fields.readingTime.text}
       />
+      <Body dangerouslySetInnerHTML={{ __html: post.html }} />
       <Bio />
-
       <OtherPosts>
         <li>
           {previous && (
@@ -62,7 +75,7 @@ export const BlogPostTemplate = ({ data, pageContext, location }) => {
   )
 }
 
-export default BlogPostTemplate
+export default BlogPost
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -76,6 +89,11 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        readingTime {
+          text
+        }
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

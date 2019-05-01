@@ -10,11 +10,19 @@ const Container = styled.div`
   display: flex;
   margin-bottom: 3em;
   animation: ${appear} 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
 `
 
 const ImageLink = styled(Link)`
-  flex: 0 1 640px;
-  margin-right: 1em;
+  margin: 0 0 1em 0;
+
+  @media (min-width: 701px) {
+    flex: 0 1 640px;
+    margin: 0 1em 0 0;
+  }
 `
 
 const Main = styled.div`

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Container = styled.small`
   display: block;
   margin-bottom: 1.5em;
-  color: grey;
+  color: #636668;
 `
 
 type Props = {

@@ -9,7 +9,11 @@ import SEO from '../components/seo'
 import { Small } from '../components/Small'
 
 const StyledImage = styled(Image)`
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+`
+
+const Container = styled.div`
+  padding: 0 0.25em;
 `
 
 const H1 = styled.h1`
@@ -24,6 +28,18 @@ const Body = styled.div`
 
   p {
     margin-bottom: 0.5em;
+  }
+
+  h2 {
+    font-size: 1.1em;
+    line-height: 1.3em;
+    border-bottom: 1px solid;
+    margin: 0.5em 0 0.75em;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 1em;
   }
 `
 
@@ -48,29 +64,31 @@ export const BlogPost = ({ data, pageContext, location }) => {
         fluid={post.frontmatter.cover.childImageSharp.fluid}
         alt={post.frontmatter.title}
       />
-      <H1>{post.frontmatter.title}</H1>
-      <Small
-        date={post.frontmatter.date}
-        readingTime={post.fields.readingTime.text}
-      />
-      <Body dangerouslySetInnerHTML={{ __html: post.html }} />
-      <Bio />
-      <OtherPosts>
-        <li>
-          {previous && (
-            <Link to={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
-            </Link>
-          )}
-        </li>
-        <li>
-          {next && (
-            <Link to={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
-            </Link>
-          )}
-        </li>
-      </OtherPosts>
+      <Container>
+        <H1>{post.frontmatter.title}</H1>
+        <Small
+          date={post.frontmatter.date}
+          readingTime={post.fields.readingTime.text}
+        />
+        <Body dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Bio />
+        <OtherPosts>
+          <li>
+            {previous && (
+              <Link to={previous.fields.slug} rel="prev">
+                ← {previous.frontmatter.title}
+              </Link>
+            )}
+          </li>
+          <li>
+            {next && (
+              <Link to={next.fields.slug} rel="next">
+                {next.frontmatter.title} →
+              </Link>
+            )}
+          </li>
+        </OtherPosts>
+      </Container>
     </Layout>
   )
 }

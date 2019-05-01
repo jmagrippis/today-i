@@ -1,7 +1,7 @@
 {
   "name": "today-i",
   "private": true,
-  "description": "Blog documenting the things I've done over the years!",
+  "description": "Blog documenting the things I'm doing!",
   "version": "0.1.0",
   "author": "Johnny Magrippis <j@magrippis.com>",
   "dependencies": {
@@ -46,7 +46,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/jmagrippis/blog"
   },
   "scripts": {
     "build": "gatsby build",

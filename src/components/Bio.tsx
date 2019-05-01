@@ -66,16 +66,16 @@ const Bio = () => (
           />
           <div>
             <Byline>
-              The adventures of intrepid developer <strong>{author}</strong>,
-              who travels the world and does stuff!
+              The adventures of intrepid engineer <strong>{author}</strong>, who
+              travels the world and does stuff!
             </Byline>
             <p>
-              Follow me{' '}
+              Follow{' '}
               <a href={`https://www.instagram.com/${social.instagram}`}>
                 on Instagram
               </a>
-              , check out my work{' '}
-              <a href={`https://github.com/${social.github}`}>on Github</a>!
+              , check out{' '}
+              <a href={`https://github.com/${social.github}`}>the Github</a>!
             </p>
           </div>
         </Container>

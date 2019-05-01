@@ -5,4 +5,10 @@ const Container = styled.span`
   color: #e4572e;
 `
 
-export const Verb = () => <Container>[verb]</Container>
+type Props = {
+  verb?: string
+}
+
+export const Verb = ({ verb = '[verb]' }: Props) => (
+  <Container>{verb}</Container>
+)

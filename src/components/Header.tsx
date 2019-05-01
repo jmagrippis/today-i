@@ -21,11 +21,12 @@ const H3 = styled.h3`
 type Props = {
   siteTitle: string
   postTitle: string
+  verb?: string
 }
 
 const verbs = ['[verb]', 'built', 'started', 'shot', '...']
 
-export const Header = ({ siteTitle, postTitle }: Props) => {
+export const Header = ({ siteTitle, postTitle, verb }: Props) => {
   const Headline = postTitle ? H3 : H1
 
   return (
@@ -39,7 +40,7 @@ export const Header = ({ siteTitle, postTitle }: Props) => {
           }}
           to={'/'}
         >
-          Today I <Verb />
+          Today I <Verb verb={verb} />
           {postTitle ? ` - ${postTitle}` : ''}
         </Link>
       </Headline>

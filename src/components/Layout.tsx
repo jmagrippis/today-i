@@ -19,11 +19,12 @@ type Props = {
   siteTitle: string
   postTitle: string
   children: ReactNode
+  verb?: string
 }
 
-const Layout = ({ siteTitle, postTitle, children }: Props) => (
+const Layout = ({ siteTitle, postTitle, verb, children }: Props) => (
   <Container>
-    <Header siteTitle={siteTitle} postTitle={postTitle} />
+    <Header siteTitle={siteTitle} postTitle={postTitle} verb={verb} />
     <main>{children}</main>
     <Footer>© {new Date().getFullYear()}, Built with 💜 in London</Footer>
   </Container>

@@ -41,6 +41,10 @@ const Body = styled.div`
     list-style-type: disc;
     padding-left: 1em;
   }
+
+  code {
+    font-size: 0.75em;
+  }
 `
 
 const OtherPosts = styled.ul`
@@ -55,7 +59,11 @@ export const BlogPost = ({ data, pageContext, location }) => {
   const { previous, next } = pageContext
 
   return (
-    <Layout siteTitle={siteTitle} postTitle={post.frontmatter.title}>
+    <Layout
+      siteTitle={siteTitle}
+      postTitle={post.frontmatter.title}
+      verb={post.frontmatter.verb}
+    >
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -116,6 +124,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        verb
         cover {
           childImageSharp {
             fluid(maxWidth: 960) {

@@ -46,6 +46,7 @@ module.exports = {
           'gatsby-remark-smartypants',
           'gatsby-remark-reading-time',
           'gatsby-plugin-typescript',
+          'gatsby-plugin-styled-components',
         ],
       },
     },

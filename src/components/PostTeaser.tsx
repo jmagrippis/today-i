@@ -20,6 +20,8 @@ const ImageLink = styled(Link)`
 const Main = styled.div`
   flex: 0 1 320px;
   padding: 0 0.5em;
+  display: flex;
+  flex-direction: column;
 `
 
 const H2 = styled.h2`
@@ -32,12 +34,26 @@ const Body = styled.p`
   line-height: 1.3em;
 `
 
+const Spacer = styled.span`
+  flex: 1;
+`
+
+const Verb = styled.div`
+  align-self: flex-end;
+  color: #f7f9f4;
+  background-color: #e4572e;
+  padding: 0.5em;
+  border-radius: 4px;
+  font-family: 'Eczar', serif;
+`
+
 type Props = {
   excerpt: string
   frontmatter: {
     title: string
     date: string
     description: string
+    verb: string
     readingTime: {
       text: string
     }
@@ -73,6 +89,8 @@ export const PostTeaser = ({ fields, excerpt, frontmatter }: Props) => (
           __html: frontmatter.description || excerpt,
         }}
       />
+      <Spacer />
+      <Verb>{frontmatter.verb}</Verb>
     </Main>
   </Container>
 )

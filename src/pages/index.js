@@ -6,26 +6,6 @@ import Layout from '../components/Layout'
 import { PostTeaser } from '../components/PostTeaser'
 import SEO from '../components/seo'
 
-export const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
-
-  return (
-    <Layout location={location} siteTitle={siteTitle}>
-      <SEO
-        title="All posts"
-        keywords={['blog', 'gatsby', 'javascript', 'react']}
-      />
-      <Bio />
-      {posts.map(({ node }) => (
-        <PostTeaser key={node.fields.slug} {...node} />
-      ))}
-    </Layout>
-  )
-}
-
-export default BlogIndex
-
 export const pageQuery = graphql`
   query {
     site {
@@ -47,6 +27,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            verb
             cover {
               childImageSharp {
                 fluid(maxWidth: 640, maxHeight: 320) {
@@ -60,3 +41,23 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export const BlogIndex = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata.title
+  const posts = data.allMarkdownRemark.edges
+
+  return (
+    <Layout location={location} siteTitle={siteTitle}>
+      <SEO
+        title="All posts"
+        keywords={['blog', 'gatsby', 'javascript', 'react']}
+      />
+      <Bio />
+      {posts.map(({ node }) => (
+        <PostTeaser key={node.fields.slug} {...node} />
+      ))}
+    </Layout>
+  )
+}
+
+export default BlogIndex

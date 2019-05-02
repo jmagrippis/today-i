@@ -34,6 +34,8 @@ Static website generators themselves are still trending in general, combining th
 
 All static website generators have always been no-brainers for simple portfolio websites; then they became easy go-tos for simple blogs by working nicely with markdown, then for more complicated multi-author blogs by integrating with services like [Contentful], and eventually even full-fledged business websites by integrating with the likes of [Shopify]. Nowadays, is there anything you **cannot** build with them?!
 
+![Here's looking at you, kid](https://i.giphy.com/media/rY93u9tQbybks/giphy.webp)
+
 But just because you **could** doesn't mean you **should**, which I guess is what I'm trying to tease out by creating this blog with Gatsby. Gatsby is based in Javascript / Typescript which has been my bread and butter for years, which means I won't be worrying about the language at all and be focused on what the framework is giving me. Gatsby is also putting [GraphQL] front and center, which I 100% appreciate. I love GraphQL and promote it whenever I can: I want to shape a future where people reach for it as easily as they reach for your classic RESTful API.
 
 Of course, this blog will start out quite simple before I bring in more niche features, like checkout flows, but I do already have some things highlight!

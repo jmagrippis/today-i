@@ -45,6 +45,12 @@ const Body = styled.div`
   code {
     font-size: 0.75em;
   }
+
+  img {
+    display: block;
+    margin: 1em auto;
+    max-width: 100%;
+  }
 `
 
 const OtherPosts = styled.ul`

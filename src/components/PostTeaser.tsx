@@ -22,14 +22,18 @@ const ImageLink = styled(Link)`
   @media (min-width: 701px) {
     flex: 0 1 640px;
     margin: 0 1em 0 0;
+    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.2);
   }
 `
 
 const Main = styled.div`
-  flex: 0 1 320px;
   padding: 0 0.5em;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 701px) {
+    flex: 0 1 320px;
+  }
 `
 
 const H2 = styled.h2`
@@ -43,7 +47,9 @@ const Body = styled.p`
 `
 
 const Spacer = styled.span`
-  flex: 1;
+  @media (min-width: 701px) {
+    flex: 1 0;
+  }
 `
 
 const Verb = styled.div`

@@ -10,7 +10,7 @@ const Container = styled.form`
   margin: 1em 0 2em;
 `
 
-const Hidden = styled.p`
+const Hidden = styled.div`
   display: none;
 `
 
@@ -61,7 +61,7 @@ export const Form = ({ className }) => (
     className={className}
     name="contact"
     method="POST"
-    netlify-honeypot="bot-field"
+    data-netlify-honeypot="bot-field"
     data-netlify="true"
     action={withPrefix('/thanks/')}
   >

@@ -64,7 +64,7 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Today I [verb] by Johnny Magrippis',
-        short_name: 'Today I [verb]',
+        short_name: 'Today I...',
         start_url: '/',
         background_color: '#f7f9f4',
         theme_color: '#e4572e',

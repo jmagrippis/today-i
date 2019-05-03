@@ -7,6 +7,7 @@ import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { Small } from '../components/Small'
+import { BannerLink } from '../components/BannerLink'
 
 const StyledImage = styled(Image)`
   margin-bottom: 1.5em;
@@ -103,6 +104,7 @@ export const BlogPost = ({ data, pageContext, location }) => {
           </li>
         </OtherPosts>
       </Container>
+      <BannerLink path="contact/">contact</BannerLink>
     </Layout>
   )
 }

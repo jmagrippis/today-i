@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import { PostTeaser } from '../components/PostTeaser'
+import { BannerLink } from '../components/BannerLink'
 import SEO from '../components/seo'
 
 export const pageQuery = graphql`
@@ -56,6 +57,7 @@ export const BlogIndex = ({ data, location }) => {
       {posts.map(({ node }) => (
         <PostTeaser key={node.fields.slug} {...node} />
       ))}
+      <BannerLink path="contact/">contact</BannerLink>
     </Layout>
   )
 }

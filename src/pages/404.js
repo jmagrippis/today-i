@@ -40,17 +40,12 @@ const Body = styled.p`
   margin-bottom: 1em;
 `
 
-export const NotFound = ({ data, location }) => {
+export const NotFound = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const [latestPost] = data.allMarkdownRemark.edges
 
   return (
-    <Layout
-      location={location}
-      siteTitle={siteTitle}
-      postTitle="404"
-      verb="mistyped"
-    >
+    <Layout siteTitle={siteTitle} postTitle="404" verb="mistyped">
       <SEO title="404: Not Found" />
       <Header>404: Not Found</Header>
       <Body>

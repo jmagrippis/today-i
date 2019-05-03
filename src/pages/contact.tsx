@@ -36,16 +36,11 @@ const Header = styled.h1`
   margin-bottom: 0.25em;
 `
 
-export const ContactPage = ({ data, location }) => {
+export const ContactPage = ({ data }) => {
   const { title, social } = data.site.siteMetadata
 
   return (
-    <Layout
-      location={location}
-      siteTitle={title}
-      postTitle="Contact"
-      verb="emailed"
-    >
+    <Layout siteTitle={title} postTitle="Contact" verb="emailed">
       <SEO title="Contact" />
       <Container>
         <Header>Contact</Header>
@@ -56,7 +51,7 @@ export const ContactPage = ({ data, location }) => {
           <a href="https://github.com/jmagrippis/today-i">on Github</a>.
         </p>
         <p>Sometimes it's about sending a message.</p>
-        <p>And you can do just that, with the following form!</p>
+        <p>And you can do just that, with this form!</p>
         <Form />
       </Container>
     </Layout>

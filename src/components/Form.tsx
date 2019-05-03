@@ -1,4 +1,5 @@
 import React from 'react'
+import { withPrefix } from 'gatsby'
 import styled from 'styled-components'
 
 const Container = styled.form`
@@ -58,6 +59,7 @@ export const Form = () => (
     method="POST"
     netlify-honeypot="bot-field"
     data-netlify="true"
+    action={withPrefix('/thanks/')}
   >
     <Hidden>
       <label>
@@ -79,8 +81,8 @@ export const Form = () => (
       <textarea
         id="message"
         name="message"
-        placeholder="Hey, I love your blog but..."
-        rows="5"
+        placeholder="Hey, I love your blog and..."
+        rows={5}
         required
       />
     </InputContainer>

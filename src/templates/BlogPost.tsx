@@ -15,6 +15,7 @@ const StyledImage = styled(Image)`
 
 const Container = styled.div`
   padding: 0 0.25em;
+  margin-bottom: 1.25em;
 `
 
 const H1 = styled.h1`
@@ -51,6 +52,10 @@ const Body = styled.div`
     display: block;
     margin: 1em auto;
     max-width: 100%;
+  }
+
+  pre {
+    margin: 1em 0;
   }
 `
 

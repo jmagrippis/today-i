@@ -56,7 +56,8 @@ const Button = styled.button`
 type Props = {
   className?: string
 }
-export const Form = ({ className }) => (
+
+export const Form = ({ className }: Props) => (
   <Container
     className={className}
     name="contact"
@@ -67,13 +68,13 @@ export const Form = ({ className }) => (
   >
     <Hidden>
       <label>
-        Don’t fill this out if you're human: <input name="bot-field" />
+        Don't fill this out if you're human: <input name="bot-field" />
       </label>
     </Hidden>
     <Hidden>
       <label>
         Netlify needs this to match up the form data:{' '}
-        <input name="form-name" value="contact" />
+        <input name="form-name" value="contact" readOnly />
       </label>
     </Hidden>
     <InputContainer>
@@ -101,5 +102,3 @@ export const Form = ({ className }) => (
     </ButtonContainer>
   </Container>
 )
-
-export default Form

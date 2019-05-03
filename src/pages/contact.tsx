@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
-import Form from '../components/Form'
+import { Form } from '../components/Form'
 
 export const pageQuery = graphql`
   query {

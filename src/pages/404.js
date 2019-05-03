@@ -27,15 +27,15 @@ export const pageQuery = graphql`
   }
 `
 
-const Header = styled.h2`
-  font-size: 1.5em;
+const Header = styled.h1`
+  font-size: 1.75em;
   line-height: 1.3em;
   padding: 0.5em 0.25em;
 `
 
 const Body = styled.p`
   padding: 0.5em 0.25em;
-  font-size: 1.25em;
+  font-size: 1.5em;
   line-height: 1.3em;
   margin-bottom: 1em;
 `
@@ -45,7 +45,12 @@ export const NotFound = ({ data, location }) => {
   const [latestPost] = data.allMarkdownRemark.edges
 
   return (
-    <Layout location={location} siteTitle={siteTitle}>
+    <Layout
+      location={location}
+      siteTitle={siteTitle}
+      postTitle="404"
+      verb="mistyped"
+    >
       <SEO title="404: Not Found" />
       <Header>404: Not Found</Header>
       <Body>

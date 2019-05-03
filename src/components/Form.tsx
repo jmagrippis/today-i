@@ -70,6 +70,12 @@ export const Form = ({ className }) => (
         Don’t fill this out if you're human: <input name="bot-field" />
       </label>
     </Hidden>
+    <Hidden>
+      <label>
+        Netlify needs this to match up the form data:{' '}
+        <input name="form-name" value="contact" />
+      </label>
+    </Hidden>
     <InputContainer>
       <label htmlFor="email">Your email</label>
       <input

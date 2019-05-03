@@ -53,8 +53,12 @@ const Button = styled.button`
   box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.1);
 `
 
-export const Form = () => (
+type Props = {
+  className?: string
+}
+export const Form = ({ className }) => (
   <Container
+    className={className}
     name="contact"
     method="POST"
     netlify-honeypot="bot-field"

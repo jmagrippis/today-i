@@ -104,7 +104,7 @@ export const BlogPost = ({ data, pageContext, location }) => {
           </li>
         </OtherPosts>
       </Container>
-      <BannerLink path="contact/">contact</BannerLink>
+      <BannerLink path="/contact/">contact</BannerLink>
     </Layout>
   )
 }

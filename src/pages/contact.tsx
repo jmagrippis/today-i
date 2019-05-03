@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Image from 'gatsby-image'
 import styled from 'styled-components'
 
 import Layout from '../components/Layout'
@@ -8,6 +9,13 @@ import Form from '../components/Form'
 
 export const pageQuery = graphql`
   query {
+    cover: file(absolutePath: { regex: "/mailbox.jpg/" }) {
+      childImageSharp {
+        fluid(maxWidth: 960) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     site {
       siteMetadata {
         title
@@ -33,7 +41,11 @@ const Container = styled.div`
 const Header = styled.h1`
   font-size: 1.75em;
   line-height: 1.3em;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.1em;
+`
+
+const StyledImage = styled(Image)`
+  margin-bottom: 1em;
 `
 
 export const ContactPage = ({ data }) => {
@@ -42,6 +54,7 @@ export const ContactPage = ({ data }) => {
   return (
     <Layout siteTitle={title} postTitle="Contact" verb="emailed">
       <SEO title="Contact" />
+      <StyledImage fluid={data.cover.childImageSharp.fluid} alt="mailbox" />
       <Container>
         <Header>Contact</Header>
         <p>

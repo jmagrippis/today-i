@@ -57,7 +57,7 @@ export const BlogIndex = ({ data, location }) => {
       {posts.map(({ node }) => (
         <PostTeaser key={node.fields.slug} {...node} />
       ))}
-      <BannerLink path="contact/">contact</BannerLink>
+      <BannerLink path="/contact/">contact</BannerLink>
     </Layout>
   )
 }

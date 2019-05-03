@@ -46,7 +46,7 @@ const Container = styled.div`
   }
 `
 
-const StyledImageContainer = styled(Image)`
+const StyledImage = styled(Image)`
   margin: 0 1em 0 0;
   border-radius: 50%;
   flex: 0 0 64px;
@@ -64,10 +64,7 @@ const Bio = () => (
 
       return (
         <Container>
-          <StyledImageContainer
-            fixed={data.avatar.childImageSharp.fixed}
-            alt={author}
-          />
+          <StyledImage fixed={data.avatar.childImageSharp.fixed} alt={author} />
           <div>
             <Byline>
               The adventures of intrepid engineer <strong>{author}</strong>, who

@@ -22,7 +22,7 @@ That said, I will still be cross-posting content over at Medium: unlike engineer
 
 So, how about that Gatsby?
 
-[medium]: https://medium.com/
+[medium]: https://medium.com/ 'A place to write big ideas and important stories'
 [flutter]: https://flutter.io/ 'Beautiful apps in record time'
 [dan abramov]: https://overreacted.io/ 'Pun on being most known for work in React?'
 
@@ -61,7 +61,7 @@ Is it me doing something wrong? Check out the [source code], and let me know ðŸ˜
 Even so, given how a lot of my forthcoming praises are about things that "just work" with no effort on my part, it is a bit sad my editor just doesn't.
 
 [visual studio code]: https://code.visualstudio.com/ 'Almost as clever as Webstorm, almost as fast as Sublime'
-[source code]: https://github.com/jmagrippis/blog/ 'crowd-sourcing code quality since 2019'
+[source code]: https://github.com/jmagrippis/today-i/ 'crowd-sourcing code quality since 2019'
 
 ## Wins
 
@@ -79,7 +79,7 @@ But back on subject, yeah, there is a "just works" feel throughout, which gets a
 
 It gives me confidence you could build a "production" app with Gatsby without jumping too far out of the box!
 
-[gatsby starters]: https://www.gatsbyjs.org/starters/?v=2 'Too much magic'
+[gatsby starters]: https://www.gatsbyjs.org/starters/?v=2 'Get going faster, but spend a minute to understand what they do'
 [webpack]: https://webpack.js.org/ 'bundle your assets'
 [parcel]: https://parceljs.org/ 'Blazing fast, zero configuration web application bundler'
 [remark-images]: https://www.gatsbyjs.org/packages/gatsby-remark-images/ 'quick-loading responsive images'
